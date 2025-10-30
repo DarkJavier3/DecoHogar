@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#8B5A2B" />
+  <meta name="description" content="Mueblería DecoHogar - Diseños que transforman tu hogar con calidad y elegancia">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-16x16.png">
+  <link rel="shortcut icon" href="./img/favicon.ico">
+  
+  <!-- Apple Touch Icon -->
+  <link rel="apple-touch-icon" href="./img/apple-touch-icon.png">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+  
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  
+  <title>Mueblería DecoHogar</title>
+</head>
+<body>
+
+  <!-- Carrito flotante -->
+  <div id="carrito-flotante">
+    <button id="toggle-carrito" class="carrito-btn">
+      🛒 <span id="cart-count">0</span>
+    </button>
+  </div>
+
+  <!-- Panel lateral del carrito -->
+  <div id="carrito-panel" class="carrito-panel">
+    <div class="carrito-header">
+      <h3>Mi Carrito</h3>
+      <button id="cerrar-carrito" class="btn-cerrar">✕</button>
+    </div>
+    <div id="carrito-items" class="carrito-items">
+      <p class="carrito-vacio">Tu carrito está vacío</p>
+    </div>
+    <div class="carrito-footer">
+      <div class="carrito-total">
+        <strong>Total:</strong>
+        <span id="total-precio">$0 MXN</span>
+      </div>
+      <button id="vaciar-carrito" class="btn btn-secondary">Vaciar Carrito</button>
+      <button id="finalizar-compra" class="btn btn-primary">Finalizar Compra</button>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-overlay">
+      <header class="hero-header">
+        <h1 class="logo">DecoHogar</h1>
+        <nav>
+          <ul>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#galeria">Galería</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="hero-content">
+        <h2>Diseños que transforman tu hogar</h2>
+        <p>Comodidad, elegancia y calidez en cada detalle.</p>
+        <a href="#productos" class="btn-hero">Ver catálogo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Productos -->
+  <section id="productos">
+    <h2>Nuestros Productos</h2>
+    <div class="productos">
+      <div class="card">
+        <img src="https://www.bkciandre.com/wp-content/uploads/2024/11/Modern-living-room-with-large-sectional-and-artistic-wall-decor.webp" alt="Sala Moderna" loading="lazy">
+        <h3>Sala Moderna</h3>
+        <p class="precio">$12,000 MXN</p>
+        <button class="btn add-to-cart" data-id="1" data-name="Sala Moderna" data-price="12000">Agregar al carrito</button>
+      </div>
+      <div class="card">
+        <img src="https://folymuebles.com/cdn/shop/files/WhatsApp_Image_2024-09-21_at_1.59-Photoroom_2_800x600.webp?v=1727212639" alt="Comedor 6 Sillas" loading="lazy">
+        <h3>Comedor 6 Sillas</h3>
+        <p class="precio">$9,800 MXN</p>
+        <button class="btn add-to-cart" data-id="2" data-name="Comedor 6 Sillas" data-price="9800">Agregar al carrito</button>
+      </div>
+      <div class="card">
+        <img src="https://muebleriaestylohouse.com/cdn/shop/files/cama-jenn-tamano-queen-color-gris-oscuro-cama-elegante-minimalista-afelpada-125832.webp?v=1745348338" alt="Recámara Queen" loading="lazy">
+        <h3>Recámara Queen</h3>
+        <p class="precio">$15,500 MXN</p>
+        <button class="btn add-to-cart" data-id="3" data-name="Recámara Queen" data-price="15500">Agregar al carrito</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nosotros -->
+  <section id="nosotros">
+    <h2>Quiénes Somos</h2>
+    <p>En DecoHogar llevamos más de 10 años transformando espacios con muebles de calidad. Combinamos elegancia, funcionalidad y sostenibilidad para crear ambientes acogedores.</p>
+  </section>
+
+  <!-- Galería -->
+  <section id="galeria">
+    <h2>Galería</h2>
+    <div class="galeria">
+      <img src="https://www.bkciandre.com/wp-content/uploads/2024/11/Modern-living-room-with-large-sectional-and-artistic-wall-decor.webp" alt="Sala Moderna con decoración artística" loading="lazy">
+      <img src="https://folymuebles.com/cdn/shop/files/WhatsApp_Image_2024-09-21_at_1.59-Photoroom_2_800x600.webp?v=1727212639" alt="Comedor elegante de 6 sillas" loading="lazy">
+      <img src="https://muebleriaestylohouse.com/cdn/shop/files/cama-jenn-tamano-queen-color-gris-oscuro-cama-elegante-minimalista-afelpada-125832.webp?v=1745348338" alt="Recámara minimalista Queen" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800" alt="Sala con sofá gris y decoración minimalista" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800" alt="Comedor familiar con iluminación cálida" loading="lazy">
+    </div>
+  </section>
+
+  <!-- Modal Galería -->
+  <div id="modal-galeria" class="modal-galeria">
+    <span class="cerrar-modal">&times;</span>
+    <button class="btn-nav btn-prev" type="button">❮</button>
+    <img id="img-modal" class="modal-contenido" alt="Imagen ampliada">
+    <button class="btn-nav btn-next" type="button">❯</button>
+    <div class="modal-caption"></div>
+  </div>
+
+  <!-- Contacto -->
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>📍 Av. Principal #45, Aguascalientes, México</p>
+    <p>📞 Tel: 449-123-4567</p>
+    <p>✉️ decohogar@gmail.com</p>
+    <form id="contacto-form">
+      <input type="text" name="nombre" placeholder="Tu nombre" required>
+      <input type="email" name="email" placeholder="Tu correo" required>
+      <textarea name="mensaje" placeholder="Tu mensaje" rows="4" required></textarea>
+      <button type="submit" class="btn">Enviar</button>
+    </form>
+  </section>
+
+ <article class="articulo ubicacion">
+  <div class="titulo-mapa">
+    <h2 class="subtitulo">Dónde estamos:</h2>
+    <p class="descripcion-mapa">
+      Nos ubicamos en la Universidad Tecnológica del Norte de Aguascalientes (UTNA).
+    </p>
+  </div>
+  <div class="contenedor-mapa">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3730.9273642653717!2d-102.283992!3d22.2245639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x868208c1ba388a0b%3A0x513aa559bea0f7f9!2sUniversidad%20Tecnol%C3%B3gica%20del%20Norte%20de%20Aguascalientes!5e0!3m2!1ses-419!2smx!4v1730271283450!5m2!1ses-419!2smx"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</article>
+
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Mueblería DecoHogar | IDGS°A</p>
+  </footer>
+
+  <script src="js/scripts.js"></script>
+</body>
+</html>

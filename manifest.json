@@ -1,0 +1,39 @@
+{
+  "name": "Mueblería DecoHogar",
+  "short_name": "DecoHogar",
+  "description": "Diseños que transforman tu hogar. Muebles de calidad con elegancia y funcionalidad.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FFF8F0",
+  "theme_color": "#8B5A2B",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "./img/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "./img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["shopping", "lifestyle", "furniture"],
+  "lang": "es-MX",
+  "dir": "ltr",
+  "prefer_related_applications": false
+}

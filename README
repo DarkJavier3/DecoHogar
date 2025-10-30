@@ -1,0 +1,67 @@
+# 🛋️ Mueblería DecoHogar - PWA
+
+## 📋 Funcionalidades
+
+### ✅ Carrito de Compras
+- Panel lateral deslizante
+- Agregar/eliminar productos
+- Aumentar/disminuir cantidad
+- Contador flotante en tiempo real
+- Persistencia con localStorage
+- Notificaciones toast
+
+### ✅ Galería Modal
+- Modal lightbox con navegación prev/next
+- Efecto hover zoom en miniaturas
+- Cerrar con ESC o click fuera
+- Lazy loading de imágenes
+
+### ✅ PWA Completa
+- Service Worker con caché offline
+- Instalable en móviles y desktop
+- Funciona sin internet
+
+### ✅ Experiencia de Usuario
+- Scroll suave entre secciones
+- Animaciones al hacer scroll
+- Diseño totalmente responsive
+- Formulario de contacto funcional
+
+
+## 📁 Estructura
+
+
+DECOHOGAR/
+├── index.html
+├── manifest.json
+├── service-worker.js
+├── css/styles.css
+├── js/scripts.js
+└── img/[iconos PWA]
+
+
+
+## 🚀 Instalación
+
+### 1. Subir al servidor
+- Mantén la estructura de carpetas
+- Requiere **HTTPS** (obligatorio para PWA)
+
+### 2. Probar PWA
+1. Abre DevTools (F12) → **Application**
+2. Verifica **Service Workers** → "activated and running"
+3. Prueba offline: **Network** → marca **Offline** → recarga (F5)
+
+### 3. Instalar como app
+- **Desktop:** Ícono + en la barra de direcciones
+- **Móvil:** "Agregar a pantalla de inicio"
+
+## 👨‍💻 Info
+
+**Versión:** 1.0.0  
+**Desarrollado por:** IDGS°A  
+**Ubicación:** Aguascalientes, México
+
+
+
+**¡Listo para producción!** 🚀
