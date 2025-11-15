@@ -1636,21 +1636,131 @@ html {
   transform: scale(1.02);
 }
 
-/* Versión móvil */
+/* ===== FIX MAPA MÓVIL - MÁS COMPACTO ===== */
 @media (max-width: 768px) {
-  .ubicacion {
-    padding: 40px 15px;
+  .contenedor-mapa {
+    padding-bottom: 50% !important; /* Más pequeño */
+    min-height: 250px;
   }
+}
 
-  .titulo-mapa .subtitulo {
-    font-size: 1.6rem;
+@media (max-width: 480px) {
+  .contenedor-mapa {
+    padding-bottom: 65% !important;
+    min-height: 200px;
   }
+}
 
-  .descripcion-mapa {
+@media (max-width: 360px) {
+  .contenedor-mapa {
+    padding-bottom: 75% !important;
+    min-height: 180px;
+  }
+}
+
+/* Si el iframe está siendo bloqueado, mostrar mensaje */
+.contenedor-mapa::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(245, 232, 199, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #8B5A2B;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.contenedor-mapa:empty::after {
+  content: "📍 Mapa no disponible. Click para abrir en Google Maps";
+  opacity: 1;
+}
+
+/* ===== MAPA CON FALLBACK RESPONSIVE ===== */
+.map-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(180deg, #f2efe9, #efe6d8);
+}
+
+.map-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 15px;
+}
+
+/* Fallback que aparece cuando el mapa no carga */
+.map-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(255, 248, 240, 0.95);
+  z-index: 5;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  border-radius: 15px;
+}
+
+.map-fallback-inner {
+  text-align: center;
+}
+
+/* Cuando el mapa carga, ocultar fallback */
+.map-container.loaded .map-fallback {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* RESPONSIVE - Mapa más pequeño en móviles */
+@media (max-width: 768px) {
+  .map-container {
+    padding-bottom: 60%; /* Más compacto */
+    min-height: 250px;
+  }
+  
+  .map-fallback-inner p {
+    font-size: 0.95rem;
+  }
+  
+  .map-fallback-inner a {
+    padding: 10px 20px;
     font-size: 0.9rem;
   }
+}
 
-  .contenedor-mapa {
+@media (max-width: 480px) {
+  .map-container {
     padding-bottom: 70%;
+    min-height: 200px;
+  }
+  
+  .map-fallback-inner p {
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .map-container {
+    padding-bottom: 80%;
+    min-height: 180px;
   }
 }

@@ -100,10 +100,42 @@
   </section>
 
   <!-- Nosotros -->
-  <section id="nosotros">
-    <h2>Quiénes Somos</h2>
-    <p>En DecoHogar llevamos más de 10 años transformando espacios con muebles de calidad. Combinamos elegancia, funcionalidad y sostenibilidad para crear ambientes acogedores.</p>
-  </section>
+<section id="nosotros">
+  <h2>Quiénes Somos</h2>
+
+  <p class="intro-nosotros">
+    En DecoHogar llevamos más de 10 años transformando espacios con muebles de calidad. Nuestro compromiso es crear ambientes que transmitan calidez, estilo y personalidad, utilizando materiales duraderos, diseño moderno y precios accesibles.
+  </p>
+
+  <div class="nosotros-cards">
+
+    <div class="card-nosotros">
+      <span class="icono">✨</span>
+      <h3>Misión</h3>
+      <p>Ofrecer muebles de alta calidad con diseños modernos que inspiren y mejoren la vida en el hogar.</p>
+    </div>
+
+    <div class="card-nosotros">
+      <span class="icono">👁️</span>
+      <h3>Visión</h3>
+      <p>Ser la mueblería líder en México reconocida por innovación, estilo y confianza.</p>
+    </div>
+
+    <div class="card-nosotros">
+      <span class="icono">💛</span>
+      <h3>Valores</h3>
+      <ul>
+        <li>Calidad</li>
+        <li>Confianza</li>
+        <li>Innovación</li>
+        <li>Honestidad</li>
+        <li>Compromiso con el cliente</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
 
   <!-- Galería -->
   <section id="galeria">
@@ -114,6 +146,8 @@
       <img src="https://muebleriaestylohouse.com/cdn/shop/files/cama-jenn-tamano-queen-color-gris-oscuro-cama-elegante-minimalista-afelpada-125832.webp?v=1745348338" alt="Recámara minimalista Queen" loading="lazy">
       <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800" alt="Sala con sofá gris y decoración minimalista" loading="lazy">
       <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800" alt="Comedor familiar con iluminación cálida" loading="lazy">
+      <img src="https://midtownconcept.mx/cdn/shop/files/BR363-174_1500x1500px_342.jpg?crop=center&height=1000&v=1687548785&width=1000" alt="Comedor familiar con iluminación cálida" loading="lazy">
+      <img src="https://media.admagazine.com/photos/630eb1ae1a0b0dd6abba21de/1:1/w_2197,h_2197,c_limit/Sala%20beige.jpg" alt="Sala Moderna con decoración artística" loading="lazy">
     </div>
   </section>
 
@@ -140,23 +174,42 @@
     </form>
   </section>
 
- <article class="articulo ubicacion">
+<article class="articulo ubicacion">
   <div class="titulo-mapa">
     <h2 class="subtitulo">Dónde estamos:</h2>
     <p class="descripcion-mapa">
-      Nos ubicamos en la Universidad Tecnológica del Norte de Aguascalientes (UTNA).
+      Nos ubicamos en Plaza Altaria, Blvd. A Zacatecas, Trojes de Alonso, 20116 Aguascalientes, Ags.
     </p>
   </div>
-  <div class="contenedor-mapa">
+  
+  <div class="map-container">
+    <!-- Fallback (se muestra si el mapa no carga) -->
+    <div class="map-fallback">
+      <div class="map-fallback-inner">
+        <p style="font-size: 1.1rem; margin-bottom: 15px; color: #8B5A2B; font-weight: 600;">
+          📍 Ver ubicación en Google Maps
+        </p>
+        <a 
+          href="https://www.google.com/maps/place/Sears+Aguascalientes/@21.9227733,-102.2897607,17z" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          style="display: inline-block; background: #8B5A2B; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s;">
+          Abrir en Google Maps
+        </a>
+      </div>
+    </div>
+    
+    <!-- Iframe del mapa -->
     <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3730.9273642653717!2d-102.283992!3d22.2245639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x868208c1ba388a0b%3A0x513aa559bea0f7f9!2sUniversidad%20Tecnol%C3%B3gica%20del%20Norte%20de%20Aguascalientes!5e0!3m2!1ses-419!2smx!4v1730271283450!5m2!1ses-419!2smx"
-      allowfullscreen=""
+      id="map-iframe"
+      class="map-iframe"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.861997367338!2d-102.2897607!3d21.9227733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8429efae0bfd72a7%3A0x83d8c3ce355d763d!2sSears%20Aguascalientes!5e0!3m2!1ses-419!2smx!4v1737000000000!5m2!1ses-419!2smx"
+      allowfullscreen
       loading="lazy"
       referrerpolicy="no-referrer-when-downgrade">
     </iframe>
   </div>
 </article>
-
 
   <!-- Footer -->
   <footer>
