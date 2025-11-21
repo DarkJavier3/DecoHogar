@@ -1,6 +1,7 @@
 // scripts.js - DecoHogar (VERSIÓN ULTRA-ROBUSTA)
 // ✅ Event Delegation en el panel completo
 // ✅ Botones +/- GARANTIZADOS funcionando
+// ✅ Formulario AJAX mejorado
 
 // ===== REGISTRO DEL SERVICE WORKER =====
 if ('serviceWorker' in navigator) {
@@ -186,8 +187,9 @@ class CarritoCompras {
     this.renderizarCarrito();
     this.actualizarContador();
     crearToast(`${producto.nombre} agregado al carrito`);
-      if (!this.panel.classList.contains('active')) 
-    this.abrirPanel();
+    if (!this.panel.classList.contains('active')) {
+      this.abrirPanel();
+    }
   }
 
   eliminarProducto(id) {
@@ -461,6 +463,109 @@ class GaleriaModal {
   }
 }
 
+// ===== FORMULARIO CON AJAX MEJORADO =====
+function inicializarFormulario() {
+  const form = document.getElementById('contacto-form');
+  if (!form) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const formData = new FormData(form);
+    const nombre = formData.get('nombre')?.trim();
+    const correo = formData.get('correo')?.trim();
+    const mensaje = formData.get('mensaje')?.trim();
+    
+    // Validaciones del lado del cliente
+    if (!nombre || !correo || !mensaje) {
+      crearToast('⚠️ Por favor completa todos los campos', 'warning');
+      return;
+    }
+    
+    if (nombre.length < 3) {
+      crearToast('⚠️ El nombre debe tener al menos 3 caracteres', 'warning');
+      return;
+    }
+    
+    // ✅ NUEVA VALIDACIÓN: El nombre no puede contener números
+    if (/[0-9]/.test(nombre)) {
+      crearToast('⚠️ El nombre no puede contener números', 'warning');
+      return;
+    }
+    
+    if (mensaje.length < 10) {
+      crearToast('⚠️ El mensaje debe tener al menos 10 caracteres', 'warning');
+      return;
+    }
+    
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(correo)) {
+      crearToast('⚠️ El correo electrónico no es válido', 'warning');
+      return;
+    }
+    
+    // Deshabilitar botón y cambiar texto
+    const boton = form.querySelector('button[type="submit"]');
+    const textoOriginal = boton.textContent;
+    boton.disabled = true;
+    boton.textContent = '📤 Enviando...';
+    boton.style.opacity = '0.6';
+    
+    console.log('📧 Enviando a PHP:', { nombre, correo, mensaje: mensaje.substring(0, 20) + '...' });
+    
+    try {
+      const response = await fetch('guardar_contacto.php', {
+        method: 'POST',
+        body: formData
+      });
+      
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+      
+      const resultado = await response.text();
+      console.log('📨 Respuesta del servidor:', resultado);
+      
+      // Verificar si fue exitoso
+      if (resultado.includes('✅') || resultado.includes('exitosamente') || resultado.includes('correctamente')) {
+        crearToast('✅ ¡Mensaje enviado correctamente!', 'success');
+        form.reset();
+        
+        // Scroll suave al mensaje de éxito
+        setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 500);
+        
+      } else if (resultado.includes('❌')) {
+        // Extraer mensaje de error limpio
+        const mensajeError = resultado.replace('❌', '').trim();
+        crearToast('❌ ' + mensajeError, 'error');
+      } else {
+        crearToast('❌ Respuesta inesperada del servidor', 'error');
+        console.warn('Respuesta completa:', resultado);
+      }
+      
+    } catch (error) {
+      console.error('❌ Error de red:', error);
+      
+      if (error.message.includes('Failed to fetch')) {
+        crearToast('❌ No se pudo conectar. Verifica que Apache esté activo en XAMPP', 'error');
+      } else if (error.message.includes('404')) {
+        crearToast('❌ Archivo guardar_contacto.php no encontrado', 'error');
+      } else {
+        crearToast('❌ Error de conexión: ' + error.message, 'error');
+      }
+      
+    } finally {
+      // Restaurar botón
+      boton.disabled = false;
+      boton.textContent = textoOriginal;
+      boton.style.opacity = '1';
+    }
+  });
+}
+ 
+
 // ===== LAZY LOADING =====
 function inicializarLazyLoading() {
   const images = document.querySelectorAll('img[loading="lazy"]');
@@ -522,24 +627,27 @@ function inicializarAnimaciones() {
   });
 }
 
-// ===== FORMULARIO =====
-function inicializarFormulario() {
-  const form = document.getElementById('contacto-form');
-  if (!form) return;
+// ===== MAPA: mostrar/ocultar fallback si el iframe carga o no =====
+function inicializarMapaFallback() {
+  const iframe = document.getElementById('map-iframe');
+  if (!iframe) return;
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const data = new FormData(form);
-    
-    console.log('📧 Enviando:', {
-      nombre: data.get('nombre'),
-      email: data.get('email'),
-      mensaje: data.get('mensaje')
-    });
+  const container = iframe.closest('.map-container');
+  const fallback = container ? container.querySelector('.map-fallback') : null;
 
-    crearToast('✉️ Mensaje enviado. ¡Gracias!', 'success');
-    form.reset();
+  // Si el iframe dispara load, ocultamos fallback
+  iframe.addEventListener('load', () => {
+    if (container) container.classList.add('loaded');
+    console.log('🗺️ Iframe del mapa cargado');
   });
+
+  // Si en 5s no se dispara load, conservamos el fallback visible
+  setTimeout(() => {
+    if (container && !container.classList.contains('loaded')) {
+      console.warn('⚠️ El iframe del mapa no respondió en 5s — mostrando fallback');
+      if (fallback) fallback.style.opacity = '1';
+    }
+  }, 5000);
 }
 
 // ===== INICIALIZACIÓN =====

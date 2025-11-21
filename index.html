@@ -22,6 +22,7 @@
   <link rel="manifest" href="manifest.json">
   
   <title>Mueblería DecoHogar</title>
+  
 </head>
 <body>
 
@@ -96,6 +97,30 @@
         <p class="precio">$15,500 MXN</p>
         <button class="btn add-to-cart" data-id="3" data-name="Recámara Queen" data-price="15500">Agregar al carrito</button>
       </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800" alt="Sala Gris Minimalista" loading="lazy">
+        <h3>Sala Gris Minimalista</h3>
+        <p class="precio">$13,500 MXN</p>
+        <button class="btn add-to-cart" data-id="4" data-name="Sala Gris Minimalista" data-price="13500">Agregar al carrito</button>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800" alt="Comedor Familiar" loading="lazy">
+        <h3>Comedor Familiar</h3>
+        <p class="precio">$11,200 MXN</p>
+        <button class="btn add-to-cart" data-id="5" data-name="Comedor Familiar" data-price="11200">Agregar al carrito</button>
+      </div>
+      <div class="card">
+        <img src="https://midtownconcept.mx/cdn/shop/files/BR363-174_1500x1500px_342.jpg?crop=center&height=1000&v=1687548785&width=1000" alt="Comedor Clásico" loading="lazy">
+        <h3>Comedor Clásico</h3>
+        <p class="precio">$10,800 MXN</p>
+        <button class="btn add-to-cart" data-id="6" data-name="Comedor Clásico" data-price="10800">Agregar al carrito</button>
+      </div>
+      <div class="card">
+        <img src="https://media.admagazine.com/photos/630eb1ae1a0b0dd6abba21de/1:1/w_2197,h_2197,c_limit/Sala%20beige.jpg" alt="Sala Beige Elegante" loading="lazy">
+        <h3>Sala Beige Elegante</h3>
+        <p class="precio">$14,200 MXN</p>
+        <button class="btn add-to-cart" data-id="7" data-name="Sala Beige Elegante" data-price="14200">Agregar al carrito</button>
+      </div>
     </div>
   </section>
 
@@ -106,7 +131,7 @@
   <p class="intro-nosotros">
     En DecoHogar llevamos más de 10 años transformando espacios con muebles de calidad. Nuestro compromiso es crear ambientes que transmitan calidez, estilo y personalidad, utilizando materiales duraderos, diseño moderno y precios accesibles.
   </p>
-
+<br><br>
   <div class="nosotros-cards">
 
     <div class="card-nosotros">
@@ -116,7 +141,7 @@
     </div>
 
     <div class="card-nosotros">
-      <span class="icono">👁️</span>
+      <span class="icono">👁</span>
       <h3>Visión</h3>
       <p>Ser la mueblería líder en México reconocida por innovación, estilo y confianza.</p>
     </div>
@@ -161,55 +186,57 @@
   </div>
 
   <!-- Contacto -->
-  <section id="contacto">
-    <h2>Contacto</h2>
-    <p>📍 Av. Principal #45, Aguascalientes, México</p>
-    <p>📞 Tel: 449-123-4567</p>
-    <p>✉️ decohogar@gmail.com</p>
-    <form id="contacto-form">
-      <input type="text" name="nombre" placeholder="Tu nombre" required>
-      <input type="email" name="email" placeholder="Tu correo" required>
-      <textarea name="mensaje" placeholder="Tu mensaje" rows="4" required></textarea>
-      <button type="submit" class="btn">Enviar</button>
-    </form>
-  </section>
 
-<article class="articulo ubicacion">
+<section id="contacto">
+  <h2>Contacto</h2>
+  <p>📍 Av. Principal #45, Aguascalientes, México</p>
+  <p>📞 Tel: 449-123-4567</p>
+  <p>✉ decohogar@gmail.com</p>
+  <form id="contacto-form" method="POST">
+    <input 
+      type="text" 
+      name="nombre" 
+      placeholder="Tu nombre (sin números)" 
+      required 
+      minlength="3"
+      pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+"
+      title="El nombre solo puede contener letras y espacios">
+    <input 
+      type="email" 
+      name="correo" 
+      placeholder="Tu correo" 
+      required>
+    <textarea 
+      name="mensaje" 
+      placeholder="Tu mensaje" 
+      rows="4" 
+      required 
+      minlength="10"></textarea>
+    <button type="submit" class="btn">Enviar</button>
+  </form>
+</section>
+
+ <article class="articulo ubicacion">
   <div class="titulo-mapa">
     <h2 class="subtitulo">Dónde estamos:</h2>
     <p class="descripcion-mapa">
       Nos ubicamos en Plaza Altaria, Blvd. A Zacatecas, Trojes de Alonso, 20116 Aguascalientes, Ags.
     </p>
   </div>
-  
-  <div class="map-container">
-    <!-- Fallback (se muestra si el mapa no carga) -->
-    <div class="map-fallback">
-      <div class="map-fallback-inner">
-        <p style="font-size: 1.1rem; margin-bottom: 15px; color: #8B5A2B; font-weight: 600;">
-          📍 Ver ubicación en Google Maps
-        </p>
-        <a 
-          href="https://www.google.com/maps/place/Sears+Aguascalientes/@21.9227733,-102.2897607,17z" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          style="display: inline-block; background: #8B5A2B; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s;">
-          Abrir en Google Maps
-        </a>
-      </div>
-    </div>
-    
-    <!-- Iframe del mapa -->
-    <iframe
-      id="map-iframe"
-      class="map-iframe"
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.861997367338!2d-102.2897607!3d21.9227733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8429efae0bfd72a7%3A0x83d8c3ce355d763d!2sSears%20Aguascalientes!5e0!3m2!1ses-419!2smx!4v1737000000000!5m2!1ses-419!2smx"
-      allowfullscreen
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
+  <div class="contenedor-mapa">
+   <iframe
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.861997367338!2d-102.2897607!3d21.9227733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8429efae0bfd72a7%3A0x83d8c3ce355d763d!2sSears%20Aguascalientes!5e0!3m2!1ses-419!2smx!4v1!5m2!1ses-419!2smx"
+  width="600"
+  height="450"
+  style="border:0;"
+  allowfullscreen=""
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+
   </div>
 </article>
+
 
   <!-- Footer -->
   <footer>
