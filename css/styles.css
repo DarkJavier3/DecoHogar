@@ -1636,131 +1636,90 @@ html {
   transform: scale(1.02);
 }
 
-/* ===== FIX MAPA MÓVIL - MÁS COMPACTO ===== */
+/* Versión móvil */
 @media (max-width: 768px) {
-  .contenedor-mapa {
-    padding-bottom: 50% !important; /* Más pequeño */
-    min-height: 250px;
+  .ubicacion {
+    padding: 40px 15px;
   }
-}
 
-@media (max-width: 480px) {
-  .contenedor-mapa {
-    padding-bottom: 65% !important;
-    min-height: 200px;
+  .titulo-mapa .subtitulo {
+    font-size: 1.6rem;
   }
-}
 
-@media (max-width: 360px) {
-  .contenedor-mapa {
-    padding-bottom: 75% !important;
-    min-height: 180px;
-  }
-}
-
-/* Si el iframe está siendo bloqueado, mostrar mensaje */
-.contenedor-mapa::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(245, 232, 199, 0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  color: #8B5A2B;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.contenedor-mapa:empty::after {
-  content: "📍 Mapa no disponible. Click para abrir en Google Maps";
-  opacity: 1;
-}
-
-/* ===== MAPA CON FALLBACK RESPONSIVE ===== */
-.map-container {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%; /* 16:9 */
-  height: 0;
-  overflow: hidden;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(180deg, #f2efe9, #efe6d8);
-}
-
-.map-iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  border-radius: 15px;
-}
-
-/* Fallback que aparece cuando el mapa no carga */
-.map-fallback {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  background: rgba(255, 248, 240, 0.95);
-  z-index: 5;
-  opacity: 1;
-  transition: opacity 0.5s ease;
-  border-radius: 15px;
-}
-
-.map-fallback-inner {
-  text-align: center;
-}
-
-/* Cuando el mapa carga, ocultar fallback */
-.map-container.loaded .map-fallback {
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* RESPONSIVE - Mapa más pequeño en móviles */
-@media (max-width: 768px) {
-  .map-container {
-    padding-bottom: 60%; /* Más compacto */
-    min-height: 250px;
-  }
-  
-  .map-fallback-inner p {
-    font-size: 0.95rem;
-  }
-  
-  .map-fallback-inner a {
-    padding: 10px 20px;
+  .descripcion-mapa {
     font-size: 0.9rem;
   }
-}
 
-@media (max-width: 480px) {
-  .map-container {
+  .contenedor-mapa {
     padding-bottom: 70%;
-    min-height: 200px;
-  }
-  
-  .map-fallback-inner p {
-    font-size: 0.9rem;
-    margin-bottom: 12px;
   }
 }
 
-@media (max-width: 360px) {
-  .map-container {
-    padding-bottom: 80%;
-    min-height: 180px;
-  }
-}
+/* ======================================== SECCIÓN NOSOTROS - ESTILOS MEJORADOS Agrega este código al final de tu styles.css ======================================== */ /* Reemplaza los estilos actuales de #nosotros */ 
+#nosotros { 
+  padding: 80px 20px; 
+  background: linear-gradient(135deg, #82715a 0%, #6b5a47 100%); 
+  color: #FFF8F0; 
+  text-align: center; 
+  width: 100%; overflow: 
+  hidden; 
+  position: relative; 
+} 
+
+/* Efecto de patrón sutil en el fondo */ 
+#nosotros::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.03) 35px, rgba(255,255,255,.03) 70px); pointer-events: none; } 
+#nosotros h2 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 20px; position: relative; padding-bottom: 25px; color: #FFF8F0; z-index: 1; } 
+#nosotros h2::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 120px; height: 4px; background: linear-gradient(90deg, #FFD76A, #ffc107); border-radius: 2px; box-shadow: 0 2px 8px rgba(255, 215, 106, 0.4); } 
+
+.intro-nosotros { max-width: 850px; margin: 0 auto 60px; font-size: clamp(1.05rem, 2vw, 1.25rem); padding: 0 20px; line-height: 1.9; color: #FFF8F0; opacity: 0.95; position: relative; z-index: 1; } 
+
+.nosotros-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 35px; max-width: 1200px; margin: 0 auto; padding: 0 10px; position: relative; z-index: 1; } 
+
+.card-nosotros { background: linear-gradient(135deg, rgba(139, 90, 43, 0.9) 0%, rgba(107, 68, 35, 0.95) 100%); backdrop-filter: blur(10px); padding: 45px 30px; border-radius: 20px; text-align: center; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; color: white; border: 2px solid rgba(255, 255, 255, 0.1); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); } 
+
+/* Efecto de brillo diagonal */ 
+.card-nosotros::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: linear-gradient( 45deg, transparent 30%, rgba(255, 255, 255, 0.15) 50%, transparent 70% ); transform: rotate(45deg); transition: all 0.8s ease; opacity: 0; } 
+.card-nosotros:hover::before { opacity: 1; top: 100%; left: 100%; } 
+
+
+/* Colores distintivos para cada tarjeta */ 
+.card-nosotros:nth-child(1) { background: linear-gradient(135deg, #8B5A2B 0%, #6B4423 100%); } 
+.card-nosotros:nth-child(2) { background: linear-gradient(135deg, #A0522D 0%, #8B4513 100%); } 
+.card-nosotros:nth-child(3) { background: linear-gradient(135deg, #CD853F 0%, #A0522D 100%); } 
+.card-nosotros:hover { transform: translateY(-12px) scale(1.02); box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4); border-color: rgba(255, 215, 106, 0.4); } 
+
+/* Icono con animación flotante */ 
+.icono { font-size: 4.5em; display: block; margin-bottom: 25px; position: relative; z-index: 1; animation: float 3.5s ease-in-out infinite; filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3)); } @keyframes float { 0%, 100% { transform: translateY(0) rotate(0deg); } 25% { transform: translateY(-8px) rotate(-3deg); } 50% { transform: translateY(-12px) rotate(0deg); } 75% { transform: translateY(-8px) rotate(3deg); } } 
+.card-nosotros h3 { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 18px; position: relative; z-index: 1; text-transform: uppercase; letter-spacing: 3px; font-family: 'Playfair Display', serif; font-weight: 700; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); } 
+.card-nosotros p { font-size: clamp(0.95rem, 2vw, 1.1rem); line-height: 1.7; position: relative; z-index: 1; opacity: 0.95; font-family: 'Open Sans', sans-serif; } 
+.card-nosotros ul { list-style: none; text-align: left; display: inline-block; position: relative; z-index: 1; margin: 0; padding: 0; } 
+.card-nosotros ul li { padding: 10px 0; font-size: clamp(0.95rem, 2vw, 1.1rem); position: relative; padding-left: 30px; transition: all 0.3s ease; } 
+.card-nosotros ul li::before { content: '✓'; position: absolute; left: 0; font-weight: bold; color: #FFD76A; font-size: 1.2em; transition: all 0.3s ease; } 
+.card-nosotros ul li:hover { padding-left: 35px; color: #FFD76A; } .card-nosotros ul li:hover::before { transform: scale(1.3) rotate(360deg); } 
+
+/* ===== ANIMACIONES DE ENTRADA ===== */ 
+@keyframes slideInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } } 
+.card-nosotros { animation: slideInUp 0.8s ease-out backwards; } 
+.card-nosotros:nth-child(1) { animation-delay: 0.1s; } 
+.card-nosotros:nth-child(2) { animation-delay: 0.2s; } 
+.card-nosotros:nth-child(3) { animation-delay: 0.3s; } 
+
+/* ===== RESPONSIVE ===== */ 
+@media (max-width: 768px) { #nosotros { padding: 60px 15px; } 
+#nosotros h2 { font-size: 2rem; padding-bottom: 20px; } 
+#nosotros h2::after { width: 80px; height: 3px; } 
+.intro-nosotros { font-size: 1.05rem; margin-bottom: 50px; } 
+.nosotros-cards { grid-template-columns: 1fr; gap: 25px; } 
+.card-nosotros { padding: 35px 25px; } 
+.icono { font-size: 3.5em; margin-bottom: 20px; } } 
+@media (max-width: 480px) { #nosotros { padding: 50px 10px; } 
+.card-nosotros { padding: 30px 20px; border-radius: 15px; } 
+.icono { font-size: 3em; } 
+.card-nosotros h3 { font-size: 1.4rem; letter-spacing: 2px; margin-bottom: 15px; } 
+.card-nosotros ul li { padding: 8px 0; padding-left: 25px; } } 
+
+/* ===== ACCESIBILIDAD ===== */ 
+@media (prefers-reduced-motion: reduce) { 
+  .card-nosotros, .icono, .card-nosotros::before { animation: none; transition: none; } 
+  .card-nosotros:hover { transform: none; } }
+
